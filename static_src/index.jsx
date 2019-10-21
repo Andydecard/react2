@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-let messages = ['Привет', 'Как дела?'];
+let messages = ['Здравствуй', 'Как дела?'];
 
 const MessageComponent = (props) => <div>{props.text}</div>;
 
