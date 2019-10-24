@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MessageField from './MessageField';
 
 
-let messages = ['Здравствуй', 'Как дела?'];
-
-const MessageComponent = (props) => <div>{props.text}</div>;
-
-const MessageField = (props) => {
-    return props.messages.map(message => <MessageComponent text={ message } />);
-};
+// const messages = ['Хай', 'Как сам?'];
+//
+// const Message = (props) => <div className="message">{props.text}</div>;
+//
+// const sendMessage = () => {
+//     messages.push('Окей!');
+//     ReactDOM.render(
+//         <MessageField messages={ messages } />,
+//         document.getElementById('root'));
+// };
+//
+// const MessageField = (props) => <div>
+//     <h1>Чат</h1>
+//     {props.messages.map(message => <Message text={ message } />) }
+//     <button onClick={ sendMessage }>Отправить сообщение</button> </div>;
 
 ReactDOM.render(
-    <MessageField messages={ messages } />,
+    <MessageField/>,
     document.getElementById('root'),
 );
