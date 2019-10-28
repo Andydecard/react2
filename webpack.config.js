@@ -10,6 +10,16 @@ module.exports = {
         path: path.resolve(__dirname, "static", "build"),
         filename: "app.js",
     },
+    resolve: {
+        modules: [path.resolve(__dirname, "static_src"), 'node_modules'],
+        extensions: ['.js', '.jsx'],
+    },
+
+    watch:true,
+    watchOptions: {
+        aggregateTimeout: 100
+    },
+
     module: {
         rules: [
             {
@@ -21,6 +31,14 @@ module.exports = {
                     presets: [
                         "@babel/env",
                         "@babel/react"
+                    ],
+                    plugins: [
+                        [
+                            "@babel/plugin-proposal-class-properties",
+                            {
+                                "loose": true
+                            }
+                        ]
                     ]
                 }
             }
