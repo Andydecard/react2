@@ -1,4 +1,6 @@
 import React from 'react';
+import { TextField, FloatingActionButton } from 'material-ui';
+import SendIcon from 'material-ui/svg-icons/content/send';
 import Message from './Message';
 import '../styles/style.css';
 
@@ -24,15 +26,17 @@ export default class MessageField extends React.Component {
 
     handleSendMessage = () => {
         const { messages, input } = this.state;
-        this.setState({'messages': [...messages, { text: input, sender: 'me' }]});
+        this.setState({'messages': [...messages, { text: input, sender: 'me' }],
+            'input': ''
+        });
     };
 
     handleChange = (event) =>{
-        this.setState({'input': event.target.value })
+        this.setState({ [event.target.name]: event.target.value })
     }
 
     render() {
-    const { messages } = this.state;
+    const { messages, input } = this.state;
 
     const messageElements = messages.map(message =>
         <Message key={ message.text } text={ message.text} sender={ message.sender }/>);
@@ -41,8 +45,20 @@ export default class MessageField extends React.Component {
             <div className="message-field">
                 { messageElements }
             </div>
-                <input onChange={ this.handleChange } />
-            <button onClick={ this.handleSendMessage }>Отправить сообщение</button>
+                <TextField
+                    name="input"
+                    fullWidth={ true }
+                    hintText="Введите сообщение"
+                    style={ { fontSize: '22px' } }
+                    onChange={ this.handleChange }
+                    value={ this.state.input }
+                    onKeyUp={ this.state.input }
+                />
+                <FloatingActionButton onClick={ this.handleSendMessage }>
+                    <SendIcon />
+                </FloatingActionButton>
+            {/*<input name='input' onChange={ this.handleChange } value={ input } />*/}
+            {/*<button onClick={ this.handleSendMessage }>Отправить сообщение</button>*/}
         </div>
 
 
