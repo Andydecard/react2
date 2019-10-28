@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MessageField from './MessageField';
 
 
 // const messages = ['Хай', 'Как сам?'];
