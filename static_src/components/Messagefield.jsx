@@ -44,7 +44,7 @@ export default class MessageField extends React.Component {
             <div className="layout">
             <div className="message-field">
                 { messageElements }
-            </div>
+            </div> <div style={ { width: '100%', display: 'flex' } }>
                 <TextField
                     name="input"
                     fullWidth={ true }
@@ -57,8 +57,8 @@ export default class MessageField extends React.Component {
                 <FloatingActionButton onClick={ this.handleSendMessage }>
                     <SendIcon />
                 </FloatingActionButton>
-            {/*<input name='input' onChange={ this.handleChange } value={ input } />*/}
-            {/*<button onClick={ this.handleSendMessage }>Отправить сообщение</button>*/}
+
+            </div>
         </div>
 
 
