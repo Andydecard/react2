@@ -10,7 +10,9 @@ function randomChoice(arr){
 
 export default class MessageField extends React.Component {
     state = {
-        messages: [{ text: "Привет!", sender: 'bot' }, { text: "Как дела?", sender: 'bot' }]
+        messages: [{ text: "Привет!", sender: 'bot' }, { text: "Как дела?", sender: 'bot' }],
+        input: '',
+
     };
 
     componentDidUpdate(){
@@ -21,12 +23,12 @@ export default class MessageField extends React.Component {
     }
 
     handleSendMessage = () => {
-        const { messages } = this.state;
-        this.setState({'messages': [...messages, { text: "Нормально!!!!", sender: 'me' }]});
+        const { messages, input } = this.state;
+        this.setState({'messages': [...messages, { text: input, sender: 'me' }]});
     };
 
     handleChange = (event) =>{
-        console.log(event.target.value);
+        this.setState({'input': event.target.value })
     }
 
     render() {
